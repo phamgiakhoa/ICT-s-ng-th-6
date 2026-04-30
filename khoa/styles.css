@@ -1,0 +1,357 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(145deg, #f9fafc 0%, #f1f5f9 100%);
+    color: #0a2540;
+    line-height: 1.5;
+}
+
+/* HEADER FIXED */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Gradient dọc: phía trên gần như trong suốt (alpha 0.2), phía dưới hơi đục hơn (alpha 0.8) */
+    background: linear-gradient(180deg, rgba(31, 27, 27, 0.2) 0%, rgba(255, 255, 255, 0.85) 100%);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    padding: 0.9rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); 
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-area {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo-area h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, darkgray, #000000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.tagline {
+    font-size: 0.75rem;
+    color: #5b6e8c;
+    font-weight: 400;
+}
+
+.status-indicator {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 40px;
+    background: #f0f2f5;
+    color: #aaa;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.status-highlight {
+    background: darkgray !important;
+    color: black !important;
+    font-weight: 700 !important;
+}
+
+.header-badge {
+    background: #eef2ff;
+    padding: 0.4rem 1.2rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #1e6f5c;
+}
+
+/* main offset */
+.main-wrapper {
+    padding-top: 110px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    min-height: calc(100vh - 280px);
+}
+
+.section-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-left: 5px solid #289672;
+    padding-left: 1rem;
+}
+
+.badge-count {
+    background: #e6f7f2;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.9rem;
+    border-radius: 40px;
+    color: #1e6f5c;
+    font-weight: 500;
+}
+
+/* GRID cards */
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.exercise-card {
+    background: white;
+    border-radius: 1.8rem;
+    overflow: hidden;
+    box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.exercise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.15);
+}
+
+.video-container {
+    background: #000;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.video-container iframe,
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+}
+
+.image-container {
+    padding: 0.9rem 0.9rem 0 0.9rem;
+}
+
+.exercise-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 1.2rem;
+    background: #eef2ff;
+    transition: transform 0.2s;
+}
+
+.card-content {
+    padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 30px;
+    transition: 0.2s;
+}
+
+.edit-btn {
+    color: #289672;
+}
+.edit-btn:hover {
+    background: #e0f2ef;
+    color: #0f5c4a;
+}
+.delete-btn {
+    color: #bf7b7b;
+}
+.delete-btn:hover {
+    background: #ffe6e6;
+    color: #c23b3b;
+}
+
+.link-info {
+    background: #f8fafd;
+    padding: 0.5rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.7rem;
+    font-family: monospace;
+    margin: 0.8rem 0 0.4rem;
+    word-break: break-all;
+}
+
+.link-info a {
+    text-decoration: none;
+    color: #289672;
+    font-weight: 500;
+}
+
+/* FORM thêm/sửa sáng đẹp */
+.add-form-section {
+    background: white;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    border: 1px solid #ebf0f5;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1e6f5c;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #2c3e50;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid #e2edf2;
+    border-radius: 1.2rem;
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #289672;
+    box-shadow: 0 0 0 3px rgba(40, 150, 114, 0.1);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.2rem;
+}
+
+.btn-submit {
+    background: #289672;
+    border: none;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-submit:hover {
+    background: #1e6f5c;
+    transform: scale(0.98);
+}
+
+.btn-cancel {
+    background: #eef2fa;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 3rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #4a627a;
+}
+
+/* Footer */
+.site-footer {
+    background: #ffffff;
+    border-top: 1px solid #e0e9f0;
+    padding: 2rem 2rem 1.5rem;
+    margin-top: 2rem;
+    color: #2d4059;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-info i {
+    width: 28px;
+    color: #289672;
+}
+
+.footer-credit {
+    text-align: right;
+}
+
+hr {
+    margin-top: 1.5rem;
+    border-color: #e2e8f0;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+    .main-wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 130px;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-credit {
+        text-align: center;
+    }
+    .logo-area {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
